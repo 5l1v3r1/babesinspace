@@ -5,7 +5,7 @@
   var STAR_COUNT_PER_PIXEL = 0.00005555555556;
 
   var MIN_DURATION = 60000;
-  var DURATION_DEVIATION = 30000;
+  var DURATION_DEVIATION = 60000;
 
   var MIN_RADIUS = 0.5;
   var RADIUS_DEVIATION = 1;
@@ -57,10 +57,6 @@
     var ctx = this.canvas.getContext('2d');
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     ctx.fillStyle = STAR_FILL;
-    ctx.shadowColor = 'white';
-    ctx.shadowBlur = 3;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
     for (var i = 0; i < this.stars.length; ++i) {
       var star = this.stars[i];
       star.remainingTime -= elapsed;
@@ -70,8 +66,15 @@
       } else {
         var pos = starPosition(star);
         var r = star.radius;
+
+        ctx.globalAlpha = 0.8;
         ctx.beginPath();
         ctx.arc(pos.x*this.canvas.width, pos.y*this.canvas.height, r, 0, Math.PI*2);
+        ctx.fill();
+
+        ctx.globalAlpha = 0.2;
+        ctx.beginPath();
+        ctx.arc(pos.x*this.canvas.width, pos.y*this.canvas.height, r*2, 0, Math.PI*2);
         ctx.fill();
       }
     }
