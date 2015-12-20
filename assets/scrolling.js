@@ -7,6 +7,8 @@
     var maxOffset = window.innerHeight - 130;
     var angle = 180 - Math.min(1, scrollOffset/maxOffset)*180;
     rocket.style.transform = 'rotate(' + angle + 'deg)';
+    rocket.style.webkitTransform = 'rotate(' + angle + 'deg)';
+    rocket.style.MozTransform = 'rotate(' + angle + 'deg)';
   }
 
   window.addEventListener('load', function() {

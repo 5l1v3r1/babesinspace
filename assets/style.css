@@ -83,6 +83,10 @@ html, body {
 
   background-image: url('rocket.svg');
   background-size: 100% 100%;
+
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
 }
 
 #contents {
