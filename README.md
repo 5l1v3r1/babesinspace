@@ -1,3 +1,3 @@
 # babesinspace
 
-This will be the content of the website [babesinspace.xyz](http://babesinspace.xyz). It will say how many female astronauts are currently in space.
+This is the source code of [babesinspace.xyz](http://babesinspace.xyz), a website which shows astronauts in space with a special emphasis on the female ones (estronauts).

@@ -44,8 +44,15 @@ func main() {
 			encoded, _ := json.Marshal(astronauts)
 			s := strings.Replace(string(contents), "[/*ASTRONAUTS HERE*/]",
 				string(encoded), -1)
-			s = strings.Replace(s, "<!--ASTRONAUTS COUNT-->",
-				strconv.Itoa(len(astronauts)), -1)
+
+			babeCount := 0
+			for _, a := range astronauts {
+				if a.Gender == spacelist.Female {
+					babeCount++
+				}
+			}
+
+			s = strings.Replace(s, "<!--BABE COUNT-->", strconv.Itoa(babeCount), -1)
 			astronautsLock.RUnlock()
 
 			w.Header().Set("Content-Type", "text/html")

@@ -9,6 +9,11 @@ html, body {
   overflow-y: scroll;
 
   font-family: Roboto, sans-serif;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #background {
@@ -38,11 +43,6 @@ html, body {
   height: 100%;
   color: white;
   display: table;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 #counter {
@@ -86,7 +86,119 @@ html, body {
 #contents {
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
   min-height: 100%;
+}
+
+@media (max-width: 720px) {
+  #contents {
+    left: calc(50% - 150px);
+    width: 300px;
+  }
+
+  .astronaut {
+    margin: 30px 0;
+  }
+}
+
+@media (min-width: 720px) {
+  #contents {
+    left: calc(50% - 360px);
+    width: 720px;
+  }
+
+  .astronaut {
+    margin: 30px 30px;
+  }
+}
+
+.astronaut {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  background-color: white;
+  float: left;
+}
+
+.female-astronaut {
+  background-color: #ffc9e0;
+}
+
+.astronaut-image {
+  position: relative;
+  background-position: center -20px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+}
+
+.astronaut-image::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 65px;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.astronaut-description {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 260px;
+  overflow: hidden;
+  width: calc(100% - 20px);
+  height: 43px;
+  left: 10px;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.astronaut-name {
+  position: absolute;
+  top: 170px;
+  left: 10px;
+  font-size: 25px;
+  color: white;
+}
+
+.astronaut-days {
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}
+
+.astronaut-links {
+  position: absolute;
+  bottom: 10px;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.astronaut-link {
+  display: inline-block;
+  background-size: 100% 100%;
+  bottom: 0;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.bio-link {
+  background-image: url('bio.svg');
+}
+
+.twitter-link {
+  background-image: url('twitter.svg');
+}
+
+.twitter-link:hover {
+  background-image: url('twitter_hover.svg');
 }

@@ -25,12 +25,13 @@ type Astronaut struct {
 	TwitterURL string `json:"twitter"`
 	PhotoURL   string `json:"biophoto"`
 	BioURL     string `json:"biolink"`
+	Bio        string `json:"bio"`
 
 	LaunchDate   string `json:"launchdate"`
 	LocationName string `json:"location"`
 
 	Gender Gender `json:"gender"`
-	Days   int    `json:"days_in_space"`
+	Days   int    `json:"days"`
 }
 
 // DaysInSpace computes the number of days since the astronaut's launch date.

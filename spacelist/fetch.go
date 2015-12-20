@@ -30,6 +30,7 @@ func FetchAstronauts() (astronauts []*Astronaut, err error) {
 	for _, ast := range astronauts {
 		ast.Days = ast.DaysInSpace()
 		ast.Gender, err = ast.LookupGender()
+		ast.Gender = Female
 		if err != nil {
 			return nil, err
 		}
