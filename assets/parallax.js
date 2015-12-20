@@ -63,8 +63,10 @@
     this.targetXRotation = 20 * (y - height/2) / height;
   };
 
-  window.addEventListener('load', function() {
-    window.Parallax = new Parallax();
-  });
+  if (window.PARALLAX_ENABLED) {
+    window.addEventListener('load', function() {
+      window.Parallax = new Parallax();
+    });
+  }
 
 })();

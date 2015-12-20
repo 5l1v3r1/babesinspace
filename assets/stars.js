@@ -37,10 +37,17 @@
   }
 
   Stars.prototype.resize = function() {
-    this.bg.style.width = Math.round(window.innerWidth * 1.3) + 'px';
-    this.bg.style.height = Math.round(window.innerHeight * 1.3) + 'px';
-    this.bg.style.left = Math.round(-window.innerWidth * 0.15) + 'px';
-    this.bg.style.top = Math.round(-window.innerHeight * 0.15) + 'px';
+    if (window.PARALLAX_ENABLED) {
+      this.bg.style.width = Math.round(window.innerWidth * 1.3) + 'px';
+      this.bg.style.height = Math.round(window.innerHeight * 1.3) + 'px';
+      this.bg.style.left = Math.round(-window.innerWidth * 0.15) + 'px';
+      this.bg.style.top = Math.round(-window.innerHeight * 0.15) + 'px';
+    } else {
+      this.bg.style.width = Math.round(window.innerWidth) + 'px';
+      this.bg.style.height = Math.round(window.innerHeight) + 'px';
+      this.bg.style.left = '0px';
+      this.bg.style.top = '0px';
+    }
     this.canvas.width = this.canvas.offsetWidth;
     this.canvas.height = this.canvas.offsetHeight;
     this.draw(this.lastTime);
