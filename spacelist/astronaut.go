@@ -28,6 +28,9 @@ type Astronaut struct {
 
 	LaunchDate   string `json:"launchdate"`
 	LocationName string `json:"location"`
+
+	Gender Gender `json:"gender"`
+	Days   int    `json:"days_in_space"`
 }
 
 // DaysInSpace computes the number of days since the astronaut's launch date.
@@ -94,6 +97,6 @@ func nodeInnerText(n *html.Node) string {
 }
 
 func countWordOccurrences(s, sep string) int {
-	r := regexp.MustCompile("\\s" + s + "[.|\\?|!|\\s|$]")
+	r := regexp.MustCompile("\\s" + sep + "[.|\\?|!|\\s|$]")
 	return len(r.FindAllString(s, -1))
 }
