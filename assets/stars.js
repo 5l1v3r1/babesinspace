@@ -10,10 +10,11 @@
   var MIN_RADIUS = 0.5;
   var RADIUS_DEVIATION = 1;
 
-  var STAR_FILL = 'rgba(200, 200, 255, 0.7)';
+  var STAR_FILL = 'rgba(200, 200, 255, 0.8)';
 
-  function Stars(canvas) {
-    this.canvas = canvas;
+  function Stars() {
+    this.bg = document.getElementById('background');
+    this.canvas = document.getElementById('stars');
     this.lastTime = null;
     this.stars = [];
 
@@ -36,6 +37,10 @@
   }
 
   Stars.prototype.resize = function() {
+    this.bg.style.width = Math.round(window.innerWidth * 1.3) + 'px';
+    this.bg.style.height = Math.round(window.innerHeight * 1.3) + 'px';
+    this.bg.style.left = Math.round(-window.innerWidth * 0.15) + 'px';
+    this.bg.style.top = Math.round(-window.innerHeight * 0.15) + 'px';
     this.canvas.width = this.canvas.offsetWidth;
     this.canvas.height = this.canvas.offsetHeight;
     this.draw(this.lastTime);
@@ -146,7 +151,7 @@
   }
 
   window.addEventListener('load', function() {
-    new Stars(document.getElementById('stars'));
+    new Stars();
   });
 
 })();
