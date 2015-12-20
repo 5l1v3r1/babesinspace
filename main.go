@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"path"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -38,10 +39,15 @@ func main() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/" {
+			astronautsLock.RLock()
 			contents, _ := ioutil.ReadFile("assets/index.html")
 			encoded, _ := json.Marshal(astronauts)
 			s := strings.Replace(string(contents), "[/*ASTRONAUTS HERE*/]",
 				string(encoded), -1)
+			s = strings.Replace(s, "<!--ASTRONAUTS COUNT-->",
+				strconv.Itoa(len(astronauts)), -1)
+			astronautsLock.RUnlock()
+
 			w.Header().Set("Content-Type", "text/html")
 			w.Write([]byte(s))
 		} else {
