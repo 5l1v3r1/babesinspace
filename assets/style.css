@@ -16,6 +16,10 @@ html, body {
   user-select: none;
 }
 
+body {
+  overflow: hidden;
+}
+
 #background {
   position: fixed;
   width: 100%;
